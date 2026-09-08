@@ -1,0 +1,37 @@
+$primary-color: royalblue;
+$text-color: white;
+$spacing: 1rem;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-style {
+  margin: $spacing;
+  padding: $spacing;
+  top: $spacing;
+  font-weight: bolder;
+  border-radius: $spacing;
+  color: $text-color;
+  background: $primary-color;
+
+  &:hover {
+    color: $primary-color;
+    background: $text-color;
+  }
+}
+
+#myButton,
+#myButton2,
+#myButton3,
+#myButton4,
+#myButton5,
+#myButton6,
+#myButton7,
+#myButton8,
+#myButton9,
+#myButton10 {
+  @include button-style;
+}
