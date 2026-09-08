@@ -1,376 +1,431 @@
-# Module 4 Notes: Responsive Web Design
+# Module 5 Notes: Modern Front-End Development with Bootstrap & Tailwind
 
-## Code Link: [Github](https://github.com/avishekchy45/Spring-2026-IP/tree/main/module-4)
+## Code Link: [Github](https://github.com/avishekchy45/Spring-2026-IP/tree/main/Module-5)
 
-## Introduction to Responsive Web Design
+## Introduction to CSS Framework
 
-- What is Responsive Web Design (RWD)?
-  - Practice of creating websites that automatically adapt to different screen sizes and devices such as:
-    - Computer
-    - Tablet
-    - Mobile phone
-  - Instead of creating separate websites for desktop and mobile, one responsive website works on all devices.
-  - Responsive design is an approach rather than a separate technology. Modern CSS features such as Flexbox and Grid are inherently flexible, and media queries allow layouts to adapt at appropriate breakpoints. ([MDN Web Docs][responsive_design])
+- What is a CSS Framework?
+  - A CSS framework is a collection of pre-written CSS classes and, in some cases, JavaScript components that help developers construct interfaces quickly.
 
-- Why Responsive Design is Important?
-  - Over 60% of web traffic comes from mobile devices
-  - Better User Experience (UX)
-  - Better SEO ranking
-  - Easier maintenance
-  - One codebase instead of multiple websites
+### Without a framework
 
-- Key components in modern responsive web design are:
-  - Viewport `<meta>` tag
-  - Flexible layouts (CSS Grid and Flexbox)
-  - Media Queries
+A developer might write:
 
----
+```css
+.button {
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+```
 
-## Setting The Viewport ([Code](viewport.html))
-
-- Use the following `<meta>` element in the `<head>` section of all your web pages to give the browser instructions on how to control the page's dimensions and scaling.
+Then:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<button class="button">Login</button>
 ```
 
-- The `width=device-width` part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+### With Bootstrap
 
-- The `initial-scale=1.0` part sets the initial zoom level when the page is first loaded by the browser.
+```html
+<button class="btn btn-primary">Login</button>
+```
+
+### With Tailwind
+
+```html
+<button class="bg-blue-600 text-white px-5 py-2 rounded">Login</button>
+```
+
+This introduces an important distinction:
+
+| Approach        | Example                    | Idea                      |
+| --------------- | -------------------------- | ------------------------- |
+| Traditional CSS | `.button { ... }`          | Write your own CSS        |
+| Bootstrap       | `btn btn-primary`          | Use predefined components |
+| Tailwind        | `bg-blue-600 px-5 rounded` | Compose utilities         |
+
+> **HTML provides structure → CSS provides styling → CSS frameworks provide reusable styling systems/components → responsive utilities allow rapid adaptation across devices.**
+
+**Bootstrap/Tailwind do not replace CSS knowledge**. You should already understand Flexbox, Grid, media queries, box model, etc. from Module 2 and 4; the framework simply provides abstractions that make those techniques faster to implement.
 
 ---
 
-## CSS Box Model ([Code](css-box.html))
+## Bootstrap vs Tailwind
 
-- Every HTML element is actually a rectangular box.
+### Bootstrap
 
-- The Box Model consists of four parts:
-  - **Content**: Actual text or image.
-  - **Padding**: Space between content and border.
-  - **Border**: Outline surrounding the element.
-  - **Margin**: Space outside the border.
+Bootstrap provides many **ready-made components**, such as:
 
-```
-+---------------------------+
-|        Margin             |
-|  +---------------------+  |
-|  |      Border         |  |
-|  |  +---------------+  |  |
-|  |  |   Padding     |  |  |
-|  |  | +-----------+ |  |  |
-|  |  | | Content   | |  |  |
-|  |  | +-----------+ |  |  |
-|  |  +---------------+  |  |
-|  +---------------------+  |
-+---------------------------+
-```
+- Navbar
+- Cards
+- Buttons
+- Forms
+- Alerts
+- Modals
+- Dropdowns
+- Tables
 
-- Box Size Formula:
-  - _Total Width = Content + Left Padding + Right Padding + Left Border + Right Border + Left Margin + Right Margin_
+Its grid uses a **12-column system** with responsive breakpoints. ([Bootstrap][bootstrap])
 
-- box-sizing Property
-  - **content-box** (default): Width only applies to content.
-  - **border-box**: Width includes
-    - content
-    - padding
-    - border
+### Tailwind
 
-Most developers use
+Tailwind is primarily a **utility-first CSS framework**.
 
-```css
-* {
-  box-sizing: border-box;
-}
+Instead of:
+
+```html
+<button class="btn btn-primary">Login</button>
 ```
 
-Developer tools show fractional pixel differences because browsers use sub-pixel rendering, screen scaling (DPR), and computed layout math rather than raw hardcoded code values.
+Tailwind uses:
+
+```html
+<button class="bg-blue-600 text-white px-4 py-2 rounded">Login</button>
+```
+
+```text
+bg-blue-600  → background
+text-white   → text color
+px-4         → horizontal padding
+py-2         → vertical padding
+rounded      → border radius
+```
+
+Tailwind's responsive system allows utilities to be conditionally applied at breakpoints, e.g. `md:flex` or `lg:grid-cols-4`. ([Tailwind CSS][tailwind])
+
+### Key comparison
+
+| Feature        | Bootstrap          | Tailwind                |
+| -------------- | ------------------ | ----------------------- |
+| Philosophy     | Component-oriented | Utility-first           |
+| Grid           | 12-column grid     | CSS Grid/Flex utilities |
+| Components     | Many predefined    | Mostly build your own   |
+| Styling        | Predefined classes | Utility classes         |
+| Customization  | Moderate           | Very high               |
+| Learning curve | Easier initially   | More classes to learn   |
+| HTML           | Relatively compact | Can become class-heavy  |
+
+The key concept:
+
+> **Bootstrap gives more predefined components; Tailwind gives low-level utilities for composing your own design.**
 
 ---
 
-## CSS Positioning ([Code](css-positioning.html))
+## Bootstrap
 
-- CSS provides several positioning methods.
-  - **Static** (Default): The element stays in normal flow.
+### Setting Up Bootstrap ([Code](bootstrap/setup.html))
 
-  ```css
-  position: static;
-  ```
-
-  - **Relative**: Moves relative to original position.
-
-  ```css
-  position: relative;
-  left: 20px;
-  top: 10px;
-  ```
-
-  - **Absolute**: Moves relative to the nearest positioned ancestor.
-
-  ```css
-  position: absolute;
-  top: 0;
-  right: 0;
-  ```
-
-  - **Fixed**: Always stays on the screen.
-    - Example: Chat button, Back-to-top button.
-
-  ```css
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  ```
-
-  - **Sticky**: Acts relative until scrolling reaches a point.
-    - Example: Sticky navigation bar.
-
-  ```css
-  position: sticky;
-  top: 0;
-  ```
-
-- Practical use cases:
-  - Notification badges
-  - Floating buttons
-  - Sticky menus
-  - Image overlays
+The easiest approach is to use the Bootstrap CDN.
 
 ---
 
-## Flexbox ([Code](css-flexbox.html))
+### Responsive Bootstrap Grid ([Code](bootstrap/responsive-grid.html))
 
-- Flexbox is a **one-dimensional layout system**, meaning it arranges items in either a row or a column. It is ideal for navigation bars, menus, card rows, toolbars, and centering content. ([MDN Web Docs][flexbox])
+Bootstrap's standard grid uses:
 
-- Flex Container
-- Flex Item
-- Main Axis
-- Cross Axis
-
-```
-Main Axis
-
-Item  Item  Item
-
-↓
-
-Cross Axis
+```text
+Container
+   ↓
+ Row
+   ↓
+Columns
 ```
 
-### Important Properties
+The grid is based on **12 columns**.
 
-- **Container**
+This is where Module 4's responsive design concepts connect with Module 5.
 
-```css
-display: flex;
-```
-
-- **flex-direction**
-
-```css
-flex-direction: row | column | row-reverse | column-reverse;
-```
-
-If flex-direction is row, the main axis is horizontal and the cross axis is vertical. Switching to column flips them.
-
-- **justify-content**
-  - Controls horizontal distribution (on the main axis).
-
-```css
-justify-content: center | space-between | space-around | space-evenly;
-```
-
-- **align-items**
-  - Controls alignment on the cross axis.
-
-```css
-align-items: center | stretch;
-```
-
-- **gap**
-  - Controls space between flex items
-
-```css
-gap: 20px;
-```
-
-- **flex-wrap**
-  - Allows items to wrap to the next line if they don't fit in one row
-
-```css
-flex-wrap: nowrap | wrap | wrap-reverse;
-```
-
-- **flex**
-  - Defines how items consume space (default 0 1 auto).
-
-```css
-flex: grow shrink basis;
-```
-
-Flex-basis sets the starting size, flex-grow dictates how much an item expands if there is extra space, and flex-shrink determines how much it contracts if space is tight.
+Bootstrap's responsive grid uses breakpoint-specific classes such as `col-sm-*`, `col-md-*`, `col-lg-*`, etc.
 
 ---
 
-## CSS Grid ([Code](css-grid.html))
+### Bootstrap Navigation Bar ([Code](bootstrap/navbar.html))
 
-- CSS Grid is a **two-dimensional layout system**, allowing control over both rows and columns simultaneously. It is well suited for page layouts, dashboards, galleries, and complex interfaces. ([MDN Web Docs][responsive_design])
+Bootstrap provides a ready-made responsive navbar.
 
-```
-+----+----+----+
+- `.navbar`
+- `.navbar-expand-lg`
+- `.navbar-brand`
+- `.navbar-nav`
+- `.nav-item`
+- `.nav-link`
+- `.navbar-toggler`
+- `.collapse`
+- responsive navigation
+- `data-bs-toggle`
+- `data-bs-target`
 
-| A  | B  | C  |
+Bootstrap's responsive navbar collapse relies on its Collapse JavaScript plugin.
 
-+----+----+----+
-
-| D  | E  | F  |
-
-+----+----+----+
-```
-
-### Important Properties
-
-```css
-display: grid;
-```
-
-- **grid-template-columns**
-
-```css
-grid-template-columns: 1fr 1fr 1fr;
-```
-
-- **repeat()**
-
-```css
-repeat(3, 1fr)
-```
-
-- **gap**
-
-```css
-gap: 20px;
-```
-
-Flexbox vs Grid:
-
-| Flexbox                | Grid                                     |
-| ---------------------- | ---------------------------------------- |
-| One-dimensional        | Two-dimensional                          |
-| Best for components    | Best for page layouts                    |
-| Rows **or** columns    | Rows **and** columns                     |
-| Navigation bars, menus | Dashboards, galleries, full-page layouts |
-
-Professional developers often **combine Flexbox and Grid** rather than choosing only one. ([Sencha.com][flexbox_grid])
+Bootstrap specifically recommends semantic navigation and appropriate ARIA attributes for accessibility.
 
 ---
 
-## Media Queries ([Code](media-query.html))
+### Bootstrap Cards ([Code](bootstrap/cards.html))
 
-- Media Queries apply CSS rules only when certain conditions (such as viewport width) are met, making them a key technique for responsive design. A common strategy is **mobile-first design**, where styles for small screens are written first and enhanced for larger screens.
+Cards are useful for:
 
-```css
-@media not|only mediatype and (mediafeature and|or|not mediafeature) {
-  CSS-Code;
-}
-```
+- Products
+- Blog posts
+- Services
+- Team members
+- Projects
+- Courses
 
-- `not` keyword inverts the meaning of an entire media query.
-- `only` keyword prevents older browsers that do not support media queries with media features from applying the specified styles. It has no effect on modern browsers.
-- `and` keyword combines a media feature with a media type or other media features.
-
-They are all optional. However, if you use not or only, you must also specify a media type. Media Type can be `all`, `print` or `screen`.
-
-```css
-@media only screen and (min-width: 768px) {
-    CSS-Code;
-}
-```
-
-- More than one breakpoints can also be added.
-
-```css
-@media (min-width: 768px) {
-    CSS-Code;
-}
-@media (min-width: 600px) {
-    CSS-Code;
-}
-```
-
-- Media queries can also be used depending on the orientation of the screen.
-
-```css
-@media (orientation: landscape) {
-}
-```
-
-- Media queries can also be used to hide an element on small screens.
-
-```css
-@media (min-width: 600px) {
-  .sidebar {
-    display: none;
-  }
-}
-```
-
-## Common Breakpoints
-
-| Device  | Approximate Width |
-| ------- | ----------------: |
-| Mobile  |       up to 576px |
-| Tablet  |         577–768px |
-| Laptop  |         769–992px |
-| Desktop |   993px and above |
-
-These values are **guidelines**, not fixed standards. Breakpoints should be chosen where the content begins to look cramped or difficult to read rather than targeting specific devices. ([MDN Web Docs][media_query])
+Bootstrap describes cards as flexible content containers that can be combined with grid and utility classes for responsive layouts.
 
 ---
 
-## Responsive Design Principles
+### Responsive Card Grid ([Code](bootstrap/responsive-cards.html))
 
-- Mobile-First Design
-  - Design for small screens first.
-  - Enhance the layout for larger screens.
+Now combine **Grid + Cards**.
 
-- Fluid Layouts
-  - Prefer `%`, `vw`, `vh`, `rem`, and `fr` units over fixed pixel widths.
+This naturally leads to the **Utilities** section.
 
-- Flexible Images
+---
 
-- Readable Typography
-  - Use relative font sizes (`rem`, `em`).
-  - Maintain good line spacing.
+### Bootstrap Forms ([Code](bootstrap/forms.html))
 
-- Consistent Spacing
-  - Use responsive padding and margins.
-  - Avoid overcrowding content.
+Bootstrap provides classes for styling form controls and creating responsive form layouts.
 
-- Performance
-  - Optimize images.
-  - Minimize unnecessary CSS and JavaScript.
-  - Avoid large assets on mobile networks.
+- `.form-label`
+- `.form-control`
+- `.form-select`
+- `.form-check`
+- `.mb-3`
+- responsive form layouts
+- labels and accessibility
+- input types
 
-These principles improve usability, accessibility, and SEO. ([MDN Web Docs][responsive_design])
+Bootstrap forms can also use its grid system for multi-column layouts.
 
-To read more about Responsive Web Design or get an in-depth understanding, you may visit: [Link 1](https://www.w3schools.com/html/html_responsive.asp), [Link 2](https://www.w3schools.com/css/css_rwd_intro.asp), [Link 3](https://www.w3schools.com/htmlcss/htmlcss_layout_flow.asp), [Link 4](https://github.com/PrathamKumar14/CSS-Layout-Notes).
+---
+
+### Bootstrap Modals ([Code](bootstrap/modals.html))
+
+Bootstrap madals can be used to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+
+---
+
+### Bootstrap Utility Classes
+
+#### Spacing
+
+```html
+<div class="mt-5"></div>
+```
+
+```text
+m  → margin
+p  → padding
+
+t → top
+b → bottom
+s → start
+e → end
+x → horizontal
+y → vertical
+```
+
+Examples:
+
+```html
+<div class="mt-3">
+  <div class="mb-4">
+    <div class="px-5">
+      <div class="py-3">
+        <div class="mx-auto"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+#### Display
+
+```html
+<div class="d-flex">
+  <div class="d-grid">
+    <div class="d-none">
+      <div class="d-block"></div>
+    </div>
+  </div>
+</div>
+```
+
+#### Flexbox
+
+```html
+<div class="d-flex justify-content-center align-items-center"></div>
+```
+
+#### Text
+
+```html
+<p class="text-center"></p>
+<p class="text-start"></p>
+<p class="fw-bold"></p>
+```
+
+#### Colors
+
+```html
+<p class="text-primary"></p>
+<p class="text-danger"></p>
+<div class="bg-dark text-white"></div>
+```
+
+#### Sizing
+
+```html
+<div class="w-100">
+  <div class="h-100"></div>
+</div>
+```
+
+The important point is that **utility classes provide small, reusable styling rules without requiring to write custom CSS for every element.**
+
+---
+
+### Bootstrap Icons ([Code](bootstrap/icons.html))
+
+Bootstrap Icons is a separate open-source icon library. It can be installed through npm or loaded through its CDN. The icon library supports both SVG and icon-font approaches.
+
+Icons should not unnecessarily replace meaningful text, and decorative icons can be hidden from assistive technologies where appropriate.
+
+---
+
+## Tailwind
+
+### Setting Up Tailwind ([Code](tailwind/setup.html))
+
+For current Tailwind, the official documentation provides CLI, Vite, PostCSS and framework-based installation approaches. The CLI setup installs `tailwindcss` and `@tailwindcss/cli`.
+
+The easiest approach is to use the Bootstrap CDN.
+
+---
+
+### Responsive Tailwind Grid ([Code](tailwind/responsive-grid.html))
+
+Tailwind uses a **mobile-first** responsive approach. Unprefixed classes apply by default, while prefixes such as `md:` and `lg:` apply at those breakpoints and above.
+
+This is conceptually very similar to the Bootstrap example:
+
+```html
+<div class="col-12 col-md-6 col-lg-4"></div>
+```
+
+but the syntax and philosophy are different.
+
+---
+
+### Responsive Tailwind Flexbox ([Code](tailwind/responsive-flex.html))
+
+Tailwind's responsive variants can be applied directly to Flexbox utilities such as `flex-col` and `flex-row`.
+
+---
+
+### Tailwind Cards ([Code](tailwind/cards.html))
+
+Identify each utility instead of memorizing the entire example.
+
+---
+
+### Tailwind Forms ([Code](tailwind/forms.html))
+
+**Bootstrap**
+
+```html
+<input class="form-control" />
+```
+
+**Tailwind**
+
+```html
+<input class="w-full border rounded-lg px-4 py-2" />
+```
+
+---
+
+### Tailwind Modals ([Code](tailwind/modals.html))
+
+Tailwind modal dialog components can be used to create pop-up boxes for things like alerts, notifications, or confirmation prompts.
+
+---
+
+## Build same interface using Bootstrap and Tailwind
+
+- [Bootstrap](comparison/bootstrap.html)
+- [Taliwind](comparison/tailwind.html)
+
+Think:
+
+> **Which approach gives you more control? Which requires less CSS knowledge? Which produces more predefined components?**
 
 ---
 
 ## Recommended Hands-on Lab Exercises
 
-By the end of Module 4, complete the following practical tasks:
+By the end of Module 5, complete the following practical tasks:
 
-Build a **responsive profile card** that demonstrates multiple concepts from today's lecture.
+1. Recreate the responsive website created in Module 4 using Bootstrap.
 
-- Requirements:
-  - Use the Box Model for spacing.
-  - Position a "NEW" or "ONLINE" badge using `position: absolute`.
-  - Arrange card content with Flexbox.
-  - Display multiple cards using CSS Grid.
-  - Add a Media Query to stack cards on smaller screens.
+---
 
-[responsive_design]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design "Responsive web design - Learn web development | MDN"
-[flexbox]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox "Flexbox - Learn web development | MDN"
-[flexbox_grid]: https://www.sencha.com/blog/responsive-layouts-flexbox-css-grid-complete-guide "Creating Responsive Layouts with Flexbox and CSS Grid: The Complete Guide"
-[media_query]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries "Media query fundamentals - Learn web development | MDN"
+2. Build a **Responsive Course/Product Website**. Implement it using **Bootstrap first**. The page should contain:
+
+```text
+┌──────────────────────────────────────────┐
+│                 NAVBAR                   │
+├──────────────────────────────────────────┤
+│                                          │
+│              HERO SECTION                │
+│                                          │
+├──────────────────────────────────────────┤
+│              OUR COURSES                 │
+│                                          │
+│   ┌────────┐ ┌────────┐ ┌────────┐       │
+│   │ Card 1 │ │ Card 2 │ │ Card 3 │       │
+│   └────────┘ └────────┘ └────────┘       │
+│                                          │
+├──────────────────────────────────────────┤
+│             REGISTRATION                 │
+│                                          │
+│       Name      Email       Course       │
+│                                          │
+├──────────────────────────────────────────┤
+│                 FOOTER                   │
+└──────────────────────────────────────────┘
+```
+
+**Requirements**:
+
+- Create a responsive navbar.
+- Create a hero section.
+- Create a responsive card grid.
+- Use at least **3 cards**.
+- Each card must contain:
+  - icon/image
+  - title
+  - description
+  - button
+- Create a responsive contact/registration form.
+- Create a responsive footer.
+- Use at least **10 Bootstrap utility classes**.
+- Use at least **3 Bootstrap Icons**.
+- Test the website at:
+  - Mobile
+  - Tablet
+  - Desktop
+- Do **not** write custom CSS unless necessary.
+
+---
+
+3. Recreate the same website of Task 2 using **Tailwind CSS**.
+
+---
+
+[bootstrap]: https://getbootstrap.com/docs/5.3/layout/grid/ "Grid system · Bootstrap v5.3"
+[tailwind]: https://tailwindcss.com/docs/responsive-design "Responsive design - Core concepts - Tailwind CSS"
