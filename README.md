@@ -1,293 +1,376 @@
-# Module 2 Notes: HTML and CSS Fundamentals (HTML5 and CSS3)
-
-## Code Link: [Github](https://github.com/avishekchy45/Spring-2026-IP/tree/main/module-2)
-
-## Project Setup Instructions: [Getting Started](getting-started.md)
-
-## HTML Document Structure ([Code](index.html))
-
-- What is HTML?
-  - HyperText Markup Language
-  - Standard markup language used to create and structure the content of web pages
-  - Acts as the skeleton or fundamental framework of almost every website on the internet
-
-- HTML5 overview
-  - Latest version of HTML
-  - Introduced native multimedia support (without needing plugins like Adobe Flash), new input types(e.g., date, email, range), new attributes (e.g., placeholder, required), offline data storage capabilities, and semantic tags for clearer, more accessible web design
-
-- HTML tags, elements, and attributes
-  - Tags: Used to signal the start and end of a structural component.
-  - Elements: Complete, functional unit consisting of the opening tag, the content inside, and the closing tag combined.
-  - Attributes: Special properties placed inside an opening tag that provide extra information, settings, or styling to modify the behavior of the element.
-
-- Types of HTML Elements
-  - Block-level Elements: These automatically start on a new line and stretch to take up the full available width of the page. Examples: `<div>`, `<p>`, `<h1>` through `<h6>`, and `<form>`.
-  - Inline-level Elements: These do not start on a new line and only take up as much width as their content requires. Examples: `<a>`, `<span>`, `<strong>`, and `<img>`.
-  - Void (Self-Closing) Elements: Elements that only have a starting tag and do not wrap any text content or require a closing tag. Examples: `<br>`, `<hr>`, and `<img>` for images.
-
-- Common HTML Attributes
-  - Global Attributes: Attributes that can be legally attached to any HTML element. Examples: `id` (a unique identifier), `class` (assigns a CSS styling group), and `style` (inline CSS rules).
-  - Element-Specific Attributes: Properties that only apply to certain tags. Examples: `href` attribute belongs primarily to the `<a>` tag to specify a destination link, `src` and `alt` attributes belong to the `<img>` tag to supply the image path and description.
-  - Boolean Attributes: Attributes that do not require a value. Examples: `disabled` for `form inputs` or `autoplay` for `videos`.
-
-- Difference between `<head>` and `<body>`
-  - The `<head>` is the invisible, technical control center of your webpage. It holds metadata, page titles, and links to CSS or scripts.
-  - The `<body>` is the visual canvas. It contains all the actual content (text, images, and videos) that users directly interact with on the screen.
-
-- Importance of `<!DOCTYPE html>`
-  - Forces the browser into **Standards** Mode, avoiding **Quirks** Mode
-  - Process your HTML and CSS according to modern W3C specifications
-  - Different browsers might interpret the exact same code differently if there is no DOCTYPE to unify their rendering engine
-  - Ensures your page renders consistently, and avoids rendering bugs
-  - Case-Insensitive
-
-- Character encoding (`UTF-8`)
-  - UTF-8 (Unicode Transformation Format—8-bit) is the world's most widely used character encoding
-  - Allows the browser to show emojis, non-English scripts, and special characters
-
-- Viewport meta tag
-  - Tells mobile browsers how to control a webpage's dimensions and scaling
-  - Without it, mobile browsers assume your site is made only for desktops
-
-- Comments in HTML
-  - Written using the syntax `<!-- Your comment here -->`
-
----
-
-## Semantic HTML5 Elements ([Code](semantic.html))
-
-- What is Semantic HTML?
-  - Uses tags that clearly define the purpose of a webpage's content both to the browser and the developer
-  - Helps search engines understand and rank your site
-  - Improves accessibility for screen readers
-
-- Common semantic elements
-
-  ```
-  <header>
-  <nav>
-  <main>
-  <section>
-  <article>
-  <aside>
-  <footer>
-  <figure>
-  <figcaption>
-  ```
-
-- Semantic vs Non-semantic elements
-  - Semantic Structure:
-    ```html
-    <header>
-      <h1>Site Title</h1>
-      <nav>Home</nav>
-    </header>
-    ```
-  - Non-Semantic Structure:
-    ```html
-    <div id="header">
-      <div class="logo">Site Title</div>
-      <div class="nav-links">Home</div>
-    </div>
-    ```
-
-Semantic HTML improves document meaning for browsers, search engines, and assistive technologies. Using native semantic elements correctly also improves accessibility. ([DevDoc][accessibility])
-
----
-
-## Text Formatting ([Code](text_formatting.html))
-
-- Heading tags
-- Paragraph
-- Line break
-- Horizontal rule
-- Strong vs Bold
-- Emphasis vs Italic
-- Mark
-- Small
-- Superscript
-- Subscript
-- Blockquote
-- Code
-- Collapsible Section
-
----
-
-## Lists ([Code](lists.html))
-
-- Ordered List
-- Unordered List
-- Description List
-- Nested Lists
-
----
-
-## Tables ([Code](tables.html))
-
-- Table structure
-- Rows
-- Columns
-- Header
-- Caption
-- colspan
-- rowspan
-
----
-
-## Images ([Code](images.html))
-
-- Image formats
-- Relative vs Absolute path
-- Image optimization basics
-- Importance of `alt`
-
----
-
-## Hyperlinks ([Code](links.html))
-
-- Absolute URL
-- Relative URL
-- Internal links
-- External links
-- Email links
-- Telephone links
-- Opening links in new tabs
-
----
-
-## Forms ([Code](forms.html))
-
-- Purpose of forms
-- Form structure
-- Common input types
-- Labels
-- Buttons
-- GET vs POST
-- Placeholder
-- Required fields
-- Importance of `name` attribute
-
-HTML5 introduces semantic input types (such as `email`, `url`, `number`, and `date`) and built-in client-side validation, but server-side validation is still essential. ([SitePoint][forms])
-
----
-
-## Multimedia ([Code](multimedia.html))
-
-- Audio
-- Video
-- Controls
-- Multiple source files
-- Browser compatibility
-
----
-
-## Accessibility Basics
-
-- What is Web Accessibility?
-- Why accessibility matters
-- Screen readers
-- Keyboard navigation
-- Semantic HTML
-- Alternative text (`alt`)
-- Labels for forms
-- Meaningful link text
-
-Correct semantic HTML, descriptive `alt` text, and associated `<label>` elements are foundational accessibility practices. ([DevDoc][accessibility])
-
----
-
-## HTML Validation
-
-- Why validate HTML
-- Common HTML errors
-- Browser error tolerance
-- Benefits of validation
-
-Official validator: [https://validator.w3.org](https://validator.w3.org)
-
-HTML validation checks for structural and specification errors, such as missing required attributes or incorrect element usage, helping produce more robust markup. ([SitePoint][markup-validation])
-
----
-
-## CSS Introduction
-
-- What is CSS?
-  - Cascading Style Sheets
-  - Standard stylesheet language used to design and format the visual presentation of web pages
-  - One of the three core pillars of the web, working right alongside HTML and JavaScript.
-
-- Why CSS is needed?
-  - Separation of content and presentation
-
----
-
-## Inline vs Internal vs External CSS ([Code](inline-internal-external-css.html))
-
-- Inline CSS
-- Internal CSS
-- External CSS
-- Advantages and disadvantages
-- Which approach is recommended?
-
----
-
-## CSS Selectors ([Code](selectors.html))
-
-- Universal selector (`*`)
-- Element selector
-- ID selector
-- Class selector
-- Group selector
-- Descendant selector
-- Child selector
-- Attribute selector
-- Pseudo-class (`:hover`, `:focus`)
-
-CSS selectors define which elements receive styling, and combinators describe relationships (such as descendant or child) between elements. ([MDN Web Docs][selectors])
-
----
-
-## CSS Variables ([Code](css-variables.html))
-
-- CSS Variables (Custom Properties) allow reusable values to be defined once and referenced throughout a stylesheet.
-
-- Benefits:
+# Module 4 Notes: Responsive Web Design
+
+## Code Link: [Github](https://github.com/avishekchy45/Spring-2026-IP/tree/main/module-4)
+
+## Introduction to Responsive Web Design
+
+- What is Responsive Web Design (RWD)?
+  - Practice of creating websites that automatically adapt to different screen sizes and devices such as:
+    - Computer
+    - Tablet
+    - Mobile phone
+  - Instead of creating separate websites for desktop and mobile, one responsive website works on all devices.
+  - Responsive design is an approach rather than a separate technology. Modern CSS features such as Flexbox and Grid are inherently flexible, and media queries allow layouts to adapt at appropriate breakpoints. ([MDN Web Docs][responsive_design])
+
+- Why Responsive Design is Important?
+  - Over 60% of web traffic comes from mobile devices
+  - Better User Experience (UX)
+  - Better SEO ranking
   - Easier maintenance
-  - Consistent design
-  - Quick theme changes
-  - Reduced repetition
+  - One codebase instead of multiple websites
+
+- Key components in modern responsive web design are:
+  - Viewport `<meta>` tag
+  - Flexible layouts (CSS Grid and Flexbox)
+  - Media Queries
 
 ---
 
-## Introduction to Sass ([Code](sass.html))
+## Setting The Viewport ([Code](viewport.html))
 
-- **Sass (Syntactically Awesome Style Sheets)** is a CSS preprocessor that extends CSS with features for writing cleaner, more maintainable stylesheets. Browsers do **not** understand Sass directly, so Sass files must be compiled into standard CSS before deployment.
+- Use the following `<meta>` element in the `<head>` section of all your web pages to give the browser instructions on how to control the page's dimensions and scaling.
 
-- Why Sass?
-  - Large projects may contain thousands of lines of CSS. Sass helps by providing:
-    - Variables
-    - Nesting
-    - Mixins
-    - Inheriting
-    - Partial files
-    - Better project organization
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
 
-Many modern frameworks and build tools (such as Bootstrap's source code, Vite, and Webpack workflows) use Sass during development.
+- The `width=device-width` part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+
+- The `initial-scale=1.0` part sets the initial zoom level when the page is first loaded by the browser.
+
+---
+
+## CSS Box Model ([Code](css-box.html))
+
+- Every HTML element is actually a rectangular box.
+
+- The Box Model consists of four parts:
+  - **Content**: Actual text or image.
+  - **Padding**: Space between content and border.
+  - **Border**: Outline surrounding the element.
+  - **Margin**: Space outside the border.
+
+```
++---------------------------+
+|        Margin             |
+|  +---------------------+  |
+|  |      Border         |  |
+|  |  +---------------+  |  |
+|  |  |   Padding     |  |  |
+|  |  | +-----------+ |  |  |
+|  |  | | Content   | |  |  |
+|  |  | +-----------+ |  |  |
+|  |  +---------------+  |  |
+|  +---------------------+  |
++---------------------------+
+```
+
+- Box Size Formula:
+  - _Total Width = Content + Left Padding + Right Padding + Left Border + Right Border + Left Margin + Right Margin_
+
+- box-sizing Property
+  - **content-box** (default): Width only applies to content.
+  - **border-box**: Width includes
+    - content
+    - padding
+    - border
+
+Most developers use
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+Developer tools show fractional pixel differences because browsers use sub-pixel rendering, screen scaling (DPR), and computed layout math rather than raw hardcoded code values.
+
+---
+
+## CSS Positioning ([Code](css-positioning.html))
+
+- CSS provides several positioning methods.
+  - **Static** (Default): The element stays in normal flow.
+
+  ```css
+  position: static;
+  ```
+
+  - **Relative**: Moves relative to original position.
+
+  ```css
+  position: relative;
+  left: 20px;
+  top: 10px;
+  ```
+
+  - **Absolute**: Moves relative to the nearest positioned ancestor.
+
+  ```css
+  position: absolute;
+  top: 0;
+  right: 0;
+  ```
+
+  - **Fixed**: Always stays on the screen.
+    - Example: Chat button, Back-to-top button.
+
+  ```css
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  ```
+
+  - **Sticky**: Acts relative until scrolling reaches a point.
+    - Example: Sticky navigation bar.
+
+  ```css
+  position: sticky;
+  top: 0;
+  ```
+
+- Practical use cases:
+  - Notification badges
+  - Floating buttons
+  - Sticky menus
+  - Image overlays
+
+---
+
+## Flexbox ([Code](css-flexbox.html))
+
+- Flexbox is a **one-dimensional layout system**, meaning it arranges items in either a row or a column. It is ideal for navigation bars, menus, card rows, toolbars, and centering content. ([MDN Web Docs][flexbox])
+
+- Flex Container
+- Flex Item
+- Main Axis
+- Cross Axis
+
+```
+Main Axis
+
+Item  Item  Item
+
+↓
+
+Cross Axis
+```
+
+### Important Properties
+
+- **Container**
+
+```css
+display: flex;
+```
+
+- **flex-direction**
+
+```css
+flex-direction: row | column | row-reverse | column-reverse;
+```
+
+If flex-direction is row, the main axis is horizontal and the cross axis is vertical. Switching to column flips them.
+
+- **justify-content**
+  - Controls horizontal distribution (on the main axis).
+
+```css
+justify-content: center | space-between | space-around | space-evenly;
+```
+
+- **align-items**
+  - Controls alignment on the cross axis.
+
+```css
+align-items: center | stretch;
+```
+
+- **gap**
+  - Controls space between flex items
+
+```css
+gap: 20px;
+```
+
+- **flex-wrap**
+  - Allows items to wrap to the next line if they don't fit in one row
+
+```css
+flex-wrap: nowrap | wrap | wrap-reverse;
+```
+
+- **flex**
+  - Defines how items consume space (default 0 1 auto).
+
+```css
+flex: grow shrink basis;
+```
+
+Flex-basis sets the starting size, flex-grow dictates how much an item expands if there is extra space, and flex-shrink determines how much it contracts if space is tight.
+
+---
+
+## CSS Grid ([Code](css-grid.html))
+
+- CSS Grid is a **two-dimensional layout system**, allowing control over both rows and columns simultaneously. It is well suited for page layouts, dashboards, galleries, and complex interfaces. ([MDN Web Docs][responsive_design])
+
+```
++----+----+----+
+
+| A  | B  | C  |
+
++----+----+----+
+
+| D  | E  | F  |
+
++----+----+----+
+```
+
+### Important Properties
+
+```css
+display: grid;
+```
+
+- **grid-template-columns**
+
+```css
+grid-template-columns: 1fr 1fr 1fr;
+```
+
+- **repeat()**
+
+```css
+repeat(3, 1fr)
+```
+
+- **gap**
+
+```css
+gap: 20px;
+```
+
+Flexbox vs Grid:
+
+| Flexbox                | Grid                                     |
+| ---------------------- | ---------------------------------------- |
+| One-dimensional        | Two-dimensional                          |
+| Best for components    | Best for page layouts                    |
+| Rows **or** columns    | Rows **and** columns                     |
+| Navigation bars, menus | Dashboards, galleries, full-page layouts |
+
+Professional developers often **combine Flexbox and Grid** rather than choosing only one. ([Sencha.com][flexbox_grid])
+
+---
+
+## Media Queries ([Code](media-query.html))
+
+- Media Queries apply CSS rules only when certain conditions (such as viewport width) are met, making them a key technique for responsive design. A common strategy is **mobile-first design**, where styles for small screens are written first and enhanced for larger screens.
+
+```css
+@media not|only mediatype and (mediafeature and|or|not mediafeature) {
+  CSS-Code;
+}
+```
+
+- `not` keyword inverts the meaning of an entire media query.
+- `only` keyword prevents older browsers that do not support media queries with media features from applying the specified styles. It has no effect on modern browsers.
+- `and` keyword combines a media feature with a media type or other media features.
+
+They are all optional. However, if you use not or only, you must also specify a media type. Media Type can be `all`, `print` or `screen`.
+
+```css
+@media only screen and (min-width: 768px) {
+    CSS-Code;
+}
+```
+
+- More than one breakpoints can also be added.
+
+```css
+@media (min-width: 768px) {
+    CSS-Code;
+}
+@media (min-width: 600px) {
+    CSS-Code;
+}
+```
+
+- Media queries can also be used depending on the orientation of the screen.
+
+```css
+@media (orientation: landscape) {
+}
+```
+
+- Media queries can also be used to hide an element on small screens.
+
+```css
+@media (min-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
+```
+
+## Common Breakpoints
+
+| Device  | Approximate Width |
+| ------- | ----------------: |
+| Mobile  |       up to 576px |
+| Tablet  |         577–768px |
+| Laptop  |         769–992px |
+| Desktop |   993px and above |
+
+These values are **guidelines**, not fixed standards. Breakpoints should be chosen where the content begins to look cramped or difficult to read rather than targeting specific devices. ([MDN Web Docs][media_query])
+
+---
+
+## Responsive Design Principles
+
+- Mobile-First Design
+  - Design for small screens first.
+  - Enhance the layout for larger screens.
+
+- Fluid Layouts
+  - Prefer `%`, `vw`, `vh`, `rem`, and `fr` units over fixed pixel widths.
+
+- Flexible Images
+
+- Readable Typography
+  - Use relative font sizes (`rem`, `em`).
+  - Maintain good line spacing.
+
+- Consistent Spacing
+  - Use responsive padding and margins.
+  - Avoid overcrowding content.
+
+- Performance
+  - Optimize images.
+  - Minimize unnecessary CSS and JavaScript.
+  - Avoid large assets on mobile networks.
+
+These principles improve usability, accessibility, and SEO. ([MDN Web Docs][responsive_design])
+
+To read more about Responsive Web Design or get an in-depth understanding, you may visit: [Link 1](https://www.w3schools.com/html/html_responsive.asp), [Link 2](https://www.w3schools.com/css/css_rwd_intro.asp), [Link 3](https://www.w3schools.com/htmlcss/htmlcss_layout_flow.asp), [Link 4](https://github.com/PrathamKumar14/CSS-Layout-Notes).
 
 ---
 
 ## Recommended Hands-on Lab Exercises
 
-By the end of Module 2, complete the following practical tasks:
+By the end of Module 4, complete the following practical tasks:
 
-1. Create a personal profile webpage using semantic HTML5 elements.
-2. Design a university course registration form using HTML5 form controls and built-in validation (`required`, `type="email"`, etc.).
-3. Create a class routine or student result table.
-4. Build a webpage containing images, hyperlinks, lists, audio, and video.
-5. Style the webpage using element, class, ID, descendant, and child selectors.
+Build a **responsive profile card** that demonstrates multiple concepts from today's lecture.
 
-[accessibility]: https://devdoc.net/web/developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML.html/ "HTML: A good basis for accessibility - Learn web development | MDN"
-[forms]: https://www.sitepoint.com/html5-forms-markup/ "HTML5 Forms: The Markup — SitePoint"
-[markup-validation]: https://www.sitepoint.com/validating-html5-documents/ "Validating HTML5 Documents - SitePoint"
-[selectors]: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators "CSS selectors and combinators - CSS | MDN"
-# webproject
+- Requirements:
+  - Use the Box Model for spacing.
+  - Position a "NEW" or "ONLINE" badge using `position: absolute`.
+  - Arrange card content with Flexbox.
+  - Display multiple cards using CSS Grid.
+  - Add a Media Query to stack cards on smaller screens.
+
+[responsive_design]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design "Responsive web design - Learn web development | MDN"
+[flexbox]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox "Flexbox - Learn web development | MDN"
+[flexbox_grid]: https://www.sencha.com/blog/responsive-layouts-flexbox-css-grid-complete-guide "Creating Responsive Layouts with Flexbox and CSS Grid: The Complete Guide"
+[media_query]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries "Media query fundamentals - Learn web development | MDN"
