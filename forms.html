@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>student regisnation</title>
 </head>
 
 <body>
-
+<h1>student regisnation form</h1>
     <form action="index.html" target="_self" autocomplete="on" method="post">
 
-        <label>Name:</label>
+        <label>full Name:</label>
 
-        <input type="text" placeholder="Enter your name" name="fullname" />
+        <input type="text" placeholder="Enter your full name" name="fullname" />
 
         <br><br>
 
@@ -25,7 +25,7 @@
 
         <label>Password:</label>
 
-        <input type="password" placeholder="Enter your password" name="password" required />
+        <input type="password" placeholder="create your password" name="password" required />
 
         <br><br>
 
@@ -37,10 +37,12 @@
 
         <br><br>
 
-        <label>Agreement:</label>
-
-        <input type="checkbox" name="agree" />
-        I agree
+        <label>department:</label>
+        <select name="department">
+             <option value="cse">CSE</option>
+              <option value="eee">EEE</option> 
+              <option value="bba">BBA</option> 
+        </select>
 
         <br><br>
 
@@ -50,7 +52,14 @@
             <option value="dhaka">Dhaka</option>
 
             <option value="chattogram">Chattogram</option>
+            <option value="cumilla">Cumilla</option>
         </select>
+
+        <br><br>
+
+        <label>Agreement:</label>
+        <input type="checkbox" name="agree" required />
+        I agree to the terms
 
         <br><br>
 
@@ -60,7 +69,7 @@
 
         <br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit">registration</button>
     </form>
 
 
