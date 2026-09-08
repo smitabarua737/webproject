@@ -1,29 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>Bootstrap Card</title>
 
-  <!-- <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-light">
 
-  <div class="card" style="width: 18rem;">
-    <img src="https://picsum.photos/400/250" class="card-img-top" alt="Sample image" />
+  <div class="container py-5">
 
-    <div class="card-body">
-      <h5 class="card-title">Web Development</h5>
+```
+<div class="card shadow mx-auto" style="max-width: 350px;">
 
-      <p class="card-text">Learn modern web development techniques.</p>
+  <img src="https://picsum.photos/500/300"
+    class="card-img-top"
+    alt="Web development image">
 
-      <a href="#" class="btn btn-primary"> Learn More </a>
-    </div>
+  <div class="card-body text-center">
+
+    <h5 class="card-title">Web Design</h5>
+
+    <p class="card-text">
+      Explore HTML, CSS, Bootstrap and responsive web design.
+    </p>
+
+    <span class="badge bg-success mb-3">Beginner Friendly</span>
+    <br>
+
+    <a href="#" class="btn btn-dark">Explore Course</a>
+
+  </div>
+
+</div>
+```
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
