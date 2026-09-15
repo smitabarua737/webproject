@@ -1,6 +1,6 @@
 // Creating arrays
 
-const students = ["Bill Gates", "Steve Jobs", "Mark Zuckerberg"];
+const students = ["smita", "tasnim", "sanjana"];
 
 console.log(students[0]);
 console.log(students[1]);
@@ -9,11 +9,11 @@ console.log(students.length);
 
 // Modifying arrays
 
-students.push("Elon Musk");
+students.push("moome");
 
 students.pop();
 
-students.unshift("Elon Musk");
+students.unshift("mow");
 
 students.shift();
 
@@ -21,14 +21,14 @@ console.log(students);
 
 // Useful ES6+ array methods
 
-const numbers = [1, 2, 3, 4, 5];
+const numbers = [2, 4, 6, 8, 10];
 
-const doubled = numbers.map((number) => number * 2);
+const tripled = numbers.map((number) => number * 3);
 
-console.log(doubled);
+console.log(tripled);
 
-const numbers2 = [10, 15, 20, 25, 30];
+const numbers2 = [5, 12, 18, 24, 35];
 
-const result = numbers2.filter((number) => number >= 20);
+const result = numbers2.filter((number) => number >= 18);
 
 console.log(result);
