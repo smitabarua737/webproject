@@ -1,8 +1,8 @@
 // Function scope
 
-let globalVariable = "Global";
+let globalVariable = "Global value";
 function test() {
-  let localVariable = "Local";
+  let localVariable = "Local value";
   console.log(globalVariable);
   console.log(localVariable);
 }
@@ -13,7 +13,7 @@ console.log(globalVariable);
 // Block scope
 
 if (true) {
-  let message = "Inside block";
+  let message = "Inside the block";
   console.log(message);
 }
 // console.log(message); // Error
@@ -21,23 +21,23 @@ if (true) {
 // Why `var` is different
 
 if (true) {
-  var message = "Hello";
+  var message = "Hello from var";
 }
 console.log(message); // Works
 
 if (true) {
-  let message = "Hello";
+  let message = "Hello from let";
 }
 console.log(message); // Error
 
 // Lexical scope
 
 function outerFunction() {
-  let outerVariable = "Outer";
+  let outerVariable = "Outer value";
   console.log(outerVariable);
 
   function innerFunction() {
-    let innerVariable = "Inner";
+    let innerVariable = "Inner value";
     console.log(innerVariable);
     console.log(outerVariable);
   }
@@ -47,8 +47,10 @@ function outerFunction() {
 outerFunction();
 
 // Hoisting
-// Variables declared with `let` and `const` are hoisted, but they are not initialized. They remain uninitialized in a state called the Temporal Dead Zone (TDZ) from the start of the block until the execution reaches the line where they are declared. Accessing them early throws a ReferenceError.
+//  `var` is hoisted and initialized with undefined.
 
 console.log(hoistedVariable);
+
 var hoistedVariable = "I am hoisted";
+
 console.log(hoistedVariable);
