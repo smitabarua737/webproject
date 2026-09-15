@@ -1,6 +1,6 @@
 // if...else
 
-let marks = 75;
+let marks = 85;
 
 if (marks >= 80) {
   console.log("A+");
@@ -14,7 +14,7 @@ if (marks >= 80) {
 
 // switch
 
-let day = 3;
+let day = 5;
 
 switch (day) {
   case 1:
@@ -35,7 +35,7 @@ switch (day) {
 
 // Loops
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= 10; i++) {
   console.log(i);
 }
 
@@ -49,9 +49,9 @@ while (i <= 5) {
 do {
   console.log(i);
   i++;
-} while (i <= 5);
+} while (i <= 10);
 
-const students = ["Bill Gates", "Steve Jobs", "Mark Zuckerberg"];
+const students = ["primon ", "mow", "mome"];
 
 for (const student of students) {
   console.log(student);
