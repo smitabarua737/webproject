@@ -1,70 +1,70 @@
 // Arrow functions vs regular functions
 
-function regularFunction() {
-  console.log("Regular function");
+function normalFunction() {
+  console.log("This is a normal function");
 }
 
-const arrowFunction = () => {
-  console.log("Arrow function");
+const shortFunction = () => {
+  console.log("This is an Arrow function");
 };
 
-regularFunction();
-arrowFunction();
+normalFunction();
+shortFunction();
 
 // Lexical bound `this` in arrow functions
 // While regular functions bind `this` dynamically based on how they are called, arrow functions permanently look outward to their parent scope for this. This means that arrow functions do not have their own `this` context, and they inherit it from the surrounding code.
 
-const person = {
-  name: "Bill Gates",
-  regularFunction: function () {
+const student = {
+  name: "smita",
+  normalFunction: function () {
     console.log(this.name);
   },
-  arrowFunction: () => {
+  shortFunction: () => {
     console.log(this.name);
   }
 };
 
-person.regularFunction();
-person.arrowFunction();
+student.normalFunction();
+student.shortFunction();
 
-const person3 = {
-  name: "Steve Jobs",
-  regularFunction() {
+const student2 = {
+  name: "tasnim",
+  normalFunction() {
     console.log(this.name);
-    const arrowFunction = () => {
+    const shortFunction = () => {
       console.log(this.name);
     };
-    arrowFunction();
+    shortFunction();
   }
 };
 
-person3.regularFunction();
-// person2.arrowFunction();
+student2.normalFunction();
+
 
 // Parameter
 
-const greet = (name) => {
-  console.log(`Hello, ${name}!`);
+const welcome = (name) => {
+  console.log(`welcome, ${name}!`);
 };
-greet("Bill Gates");
+welcome("sanjana");
 
 // Implicit return
 
-const add = (a, b) => a + b;
-console.log(add(10, 20));
+const subtract = (a, b) => a - b;
+console.log(subtract(30, 10));
 
-const getUser = id => ({ userId: id, role: "Admin" });
-console.log(getUser(1));
+const getstudent = id => ({ studentId: id, department: "CSE" });
+console.log(getstudent(2));
 
 // Explicit return
 
-const multiply = (a, b) => {
-  return a * b;
+const divide = (a, b) => {
+  return a / b;
 };
-console.log(multiply(10, 20));
+console.log(divide(20, 5));
 
 // With arrays
 
-const numbers = [1, 2, 3, 4, 5];
-const squares = numbers.map((number) => number * number);
-console.log(squares);
+const numbers = [2, 4, 6, 8, 10];
+const half = numbers.map((number) => number / 2);
+console.log(half);
