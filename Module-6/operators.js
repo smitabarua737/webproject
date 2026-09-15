@@ -1,7 +1,7 @@
 // Arithmetic
 
-let a = 10;
-let b = 3;
+let a = 12;
+let b = 4;
 
 console.log(a + b);
 console.log(a - b);
@@ -12,27 +12,27 @@ console.log(a ** b);
 
 // Assignment
 
-let x = 10;
+let x = 20;
 
-x += 5;
-x -= 2;
+x += 10;
+x -= 5;
 x *= 2;
-x /= 2;
+x /= 5;
 
 console.log(x);
 
 // Comparison
 
-console.log(10 > 5);
-console.log(10 < 5);
-console.log(10 >= 10);
-console.log(10 === 10);
-console.log(10 !== 5);
+console.log(15 > 10);
+console.log(15 < 10);
+console.log(15 >= 15);
+console.log(15 === 15);
+console.log(15 !== 10);
 
 // Logical
 
-let age = 22;
-let hasID = true;
+let age = 20;
+let hasID = false;
 
 console.log(age >= 18 && hasID);
 console.log(age < 18 || hasID);
