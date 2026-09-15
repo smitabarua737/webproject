@@ -1,36 +1,36 @@
 // Function declaration
 
-function greet() {
-  console.log("Hello!");
+function welcome() {
+  console.log("welcome!");
 }
 
-greet();
+welcome();
 
 // Parameters and return value
 
-function add(a, b) {
-  return a + b;
+function subtract(a, b) {
+  return a - b;
 }
 
-let result = add(10, 20);
+let result = subtract(30, 10);
 console.log(result);
 
 // Default parameter
 
-function greet(name = "Student") {
+function greet(name = "Friend") {
   console.log(`Hello, ${name}!`);
 }
 
 greet();
-greet("Bill Gates");
+greet("primon");
 
 // Function expression
 
-const multiply = function (a, b) {
-  return a * b;
+const divide = function (a, b) {
+  return a / b;
 };
 
-console.log(multiply(5, 4));
+console.log(divide(20, 5));
 
 // Pass function as an argument
 
@@ -38,8 +38,8 @@ function greetUser(greetFunction, name) {
   greetFunction(name);
 }
 
-function sayHello(name) {
-  console.log(`Hello, ${name}!`);
+function sayHi(name) {
+  console.log(`Hi, ${name}!`);
 }
 
-greetUser(sayHello, "Steve Jobs");
+greetUser(sayHi, "mimi");
