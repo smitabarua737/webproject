@@ -1,18 +1,18 @@
 // Using `let`:
 
-let name = "Doraemon";
-let age = 5000;
-let isRobot = true;
+let name = "Nobita";
+let age = 18;
+let isStudent = true;
 
 console.log(name);
 console.log(age);
-console.log(isRobot);
+console.log(isStudent);
 
-age = 10000;
+age = 20;
 
 console.log(age);
 
-age = "Ten thousand years old";
+age = "Twenty years old";
 
 console.log(age);
 
@@ -37,4 +37,4 @@ if (true) {
 }
 
 console.log(globalAlert);
-console.log(blockSecret);
+// console.log(blockSecret);// Error
